@@ -359,6 +359,14 @@ main() {
       IFS=$' ' read -r -a colors <<< $(get_tmux_option "@dracula-uptime-colors" "default default")
       script="#($current_dir/uptime.sh)"
 
+    elif [ $plugin = "pomodoro" ]; then
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-pomodoro-colors" "red dark_gray")
+      script="#($current_dir/pomodoro.sh)"
+
+    elif [ $plugin = "carelink" ]; then
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-carelink-colors" "pink dark_gray")
+      script="#($current_dir/carelink.sh)"
+
     else
       continue
     fi

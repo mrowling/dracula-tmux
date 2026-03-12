@@ -10,6 +10,7 @@
 - [Plugins](#Plugins)
   - [attached-clients](#attached-clients---up)
   - [battery](#battery---up)
+  - [carelink](#carelink---up)
   - [compact-alt](#compact-alt---up)
   - [continuum](#continuum---up)
   - [cpu-arch](#cpu-arch---up)
@@ -245,6 +246,53 @@ additionally you can specify the separator between each battery like so:
 ```bash
 set -g @dracula-battery-separator "; "
 ```
+
+### carelink - [up](#table-of-contents)
+
+This widget displays continuous glucose monitoring (CGM) data from [carelink-go](https://github.com/mrowling/carelink-go).
+
+**Prerequisites:**
+- [carelink-go](https://github.com/mrowling/carelink-go) HTTP server running
+- [tmux-carelink-go](https://github.com/mrowling/tmux-carelink-go) plugin installed
+
+**Installation:**
+
+Install the tmux-carelink-go plugin first:
+
+```bash
+# Using TPM
+set -g @plugin 'mrowling/tmux-carelink-go'
+
+# Or manually
+git clone https://github.com/mrowling/tmux-carelink-go ~/.config/tmux/plugins/tmux-carelink-go
+```
+
+Then add carelink to your dracula plugins:
+
+```bash
+set -g @dracula-plugins "carelink battery time"
+```
+
+**Configuration:**
+
+Set your carelink-go server URL:
+
+```bash
+set -g @carelink-url "http://localhost:8080"
+```
+
+Customize the colors (optional):
+
+```bash
+set -g @dracula-carelink-colors "pink dark_gray"
+```
+
+The widget displays glucose readings with trend arrows:
+- `5.8 →` - Glucose: 5.8 mmol/L, stable
+- `12.3 ↑` - Glucose: 12.3 mmol/L, rising
+- `4.2 ↓` - Glucose: 4.2 mmol/L, falling
+
+For more information, see the [tmux-carelink-go documentation](https://github.com/mrowling/tmux-carelink-go).
 
 ### compact-alt - [up](#table-of-contents)
 

@@ -50,6 +50,7 @@ In depth configuration of Colors and alternative themes can be found [in the doc
 - Current working directory of tmux pane
 - Kerberos TGT expiration date
 - Show your Libre Freestyle 3 readings [Setup instructions](./scripts/libre.sh)
+- Show Medtronic CGM readings from carelink-go [Setup instructions](/docs/CONFIG.md#carelink---up)
 
 ## Compatibility
 
